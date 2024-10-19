@@ -21,6 +21,15 @@
             color: #4a4a4a;
         }
 
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: transparent; /* Tidak ada latar belakang */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
         label {
             display: block;
             margin-bottom: 5px;
@@ -49,8 +58,8 @@
         #output {
             min-height: 100px;
             margin-bottom: 15px;
-            white-space: pre-wrap;
-            outline: none; /* Menghilangkan border default */
+            white-space: pre; /* Mengizinkan teks untuk tidak terputus */
+            outline: none;
         }
 
         button {
@@ -71,53 +80,64 @@
             font-size: 0.9em;
             color: #555;
         }
+
+        .invert-container {
+            display: flex;
+            align-items: center; /* Mengatur agar teks dan checkbox sejajar */
+        }
+
+        .invert-container input {
+            margin-right: 10px; /* Jarak antara checkbox dan label */
+        }
     </style>
 </head>
 
 <body>
 
-    <h1>ASCII Art</h1>
-    <p>
-        <label for="filepicker">Image here 👇</label>
-        <input type="file" id="filepicker" accept=".png,.jpeg,.jpg">
-    </p>
+    <div class="container">
+        <h1>ASCII Art</h1>
+        <p>
+            <label for="filepicker">Image here 👇</label>
+            <input type="file" id="filepicker" accept=".png,.jpeg,.jpg">
+        </p>
 
-    <p>
-        <label for="dither">Dither Mode</label>
-        <select id="dither">
-            <option value="floydSteinberg">Floyd-Steinberg (simple)</option>
-            <option value="stucki">Stucki (edge contrast)</option>
-            <option value="atkinson">Atkinson (high contrast)</option>
-            <option value="threshold">Threshold (no dither)</option>
-        </select>
-    </p>
+        <p>
+            <label for="dither">Dither Mode</label>
+            <select id="dither">
+                <option value="floydSteinberg">Floyd-Steinberg (simple)</option>
+                <option value="stucki">Stucki (edge contrast)</option>
+                <option value="atkinson">Atkinson (high contrast)</option>
+                <option value="threshold">Threshold (no dither)</option>
+            </select>
+        </p>
 
-    <p>
-        <label for="threshold">Threshold</label>
-        <input type="range" id="threshold" min="0" max="254" value="127">
-    </p>
+        <p>
+            <label for="threshold">Threshold</label>
+            <input type="range" id="threshold" min="0" max="254" value="127">
+        </p>
 
-    <p>
-        <label for="width">Width</label>
-        <input type="number" id="width" value="100" step="10"> characters (>500 gets laggy)
-    </p>
+        <p>
+            <label for="width">Width</label>
+            <input type="number" id="width" value="100" step="10"> characters (>500 gets laggy)
+        </p>
 
-    <p>
-        <label for="invert">Invert</label>
-        <input type="checkbox" id="invert">
-    </p>
+        <p class="invert-container">
+            <input type="checkbox" id="invert">
+            <label for="invert">Invert</label>
+        </p>
 
-    <p>
-        <label for="font-size">Preview font size</label>
-        <input type="number" id="font-size" value="10">
-    </p>
+        <p>
+            <label for="font-size">Preview font size</label>
+            <input type="number" id="font-size" value="10">
+        </p>
 
-    <p>
-        <button id="copy">Copy</button>
-        <span class="char-count">( <span id="char-count">0</span> characters )</span>
-    </p>
+        <p>
+            <button id="copy">Copy</button>
+            <span class="char-count">( <span id="char-count">0</span> characters )</span>
+        </p>
 
-    <div id="output" contenteditable="true"></div>
+        <div id="output" contenteditable="true"></div>
+    </div>
 
     <script src="dist/index.js?v=3" type="module"></script>
 
