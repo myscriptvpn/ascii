@@ -13,12 +13,12 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
-            color: #333;
+            color: #fff; /* Warna teks default untuk mode invert */
         }
 
         h1 {
             text-align: center;
-            color: #4a4a4a;
+            color: #f4f4f4; /* Warna h1 agar tetap terlihat di latar belakang gelap */
         }
 
         .container {
@@ -34,6 +34,7 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #f4f4f4; /* Warna label agar terlihat */
         }
 
         input[type="file"],
@@ -46,6 +47,8 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             transition: border 0.3s;
+            background-color: #333; /* Latar belakang input untuk mode invert */
+            color: #fff; /* Warna teks input */
         }
 
         input[type="file"]:focus,
@@ -60,6 +63,10 @@
             margin-bottom: 15px;
             white-space: pre; /* Mengizinkan teks untuk tidak terputus */
             outline: none;
+            background-color: #222; /* Latar belakang output untuk kontras */
+            color: #fff; /* Warna teks output */
+            padding: 10px; /* Padding untuk output */
+            border-radius: 4px; /* Border radius untuk output */
         }
 
         button {
@@ -78,7 +85,7 @@
 
         .char-count {
             font-size: 0.9em;
-            color: #555;
+            color: #ddd; /* Warna char count agar terlihat */
         }
     </style>
 </head>
